@@ -2,6 +2,8 @@ public class Hello {
   public static void main(String[] args) {
 	System.out.println("okok");
 	System.out.println("dd");
+	system.out.println("감자먹고싶다.");
+
 	System.out.println("calculate a+b ::");
 	int a= 20;
 	int b= 10;
