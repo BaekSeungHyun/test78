@@ -20,6 +20,6 @@ public class Hello {
 	}
 	
 	
-	system.out.println("수정_bs");
+	system.out.println("수정_토마스");
   }
 }
