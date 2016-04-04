@@ -19,5 +19,7 @@ public class Hello {
 		System.out.println("우헤헤...");
 	}
 	
+	
+	system.out.println("수정_bs");
   }
 }
