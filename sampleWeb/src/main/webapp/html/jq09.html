@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<button id='btn1' class="btn btn-primary">값 꺼내기9</button>
+<button id='btn2' class="btn btn-primary">값 넣기9</button>
+<input id='in1'>
+<input id='in2'>
+<input id='in3'>
+
+<script src="bit.js"></script>
+<script>
+$('#btn1').click(function() {
+	alert($('input').val());
+});
+
+$('#btn2').click(function() {
+	$('input').val('nono');
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
