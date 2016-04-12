@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<button id='btn' class="btn btn-primary">안녕6</button>
+<input id='in1'>
+
+<script>
+function bit(value) {
+	var el;
+	if (value.charAt(0) == '#') {
+		el = [document.getElementById(value.substr(1))];
+	} else {
+		el = document.getElementsByTagName(value);
+	}
+	
+	return el;
+}
+
+var $ = bit;
+
+var btn = $('#btn')[0];
+
+btn.onclick = function() {
+	var in1 = $('input')[0];
+	in1.value = 'okok';
+};
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
