@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.model2.mvc.common.Search;
@@ -17,7 +16,6 @@ import com.model2.mvc.service.product.ProductService;
 public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
-	@Qualifier("productDaoImpl")
 	private ProductDao productDao;
 	
 	public ProductServiceImpl() {
