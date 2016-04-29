@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+<style>
+div {
+	border: 1px solid red;
+
+}
+
+#d1 {
+	float: right;
+	width: 180px;
+	height: 400px;
+}
+
+#d2 {
+    margin-right: 182px;
+}
+
+#d3 {
+	margin-right: 182px;
+}
+
+</style>
+</head>
+<body>
+<div id="d1">
+<h1>d1...</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<div id="d2">
+<h1>d2...</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<div id="d3">
+<h1>d3...</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+
+<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+<script>
+
+$('#btn').on('click', function() {
+	$('<button>').addClass('mybutton').html('추가버튼').appendTo('body');
+});
+
+$('#d1').on('click', '.mybutton', function(){
+	alert('okok');
+});
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

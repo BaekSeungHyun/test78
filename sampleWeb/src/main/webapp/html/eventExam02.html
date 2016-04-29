@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<button id='btn' class="btn btn-primary">안녕</button>
+<button class="mybutton">추가버튼</button>
+
+<div id="d1">
+
+</div>
+<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+<script>
+
+$('#btn').on('click', function() {
+	$('<button>').addClass('mybutton').html('추가버튼').appendTo('body');
+});
+
+$('#d1').on('click', '.mybutton', function(){
+	alert('okok');
+});
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

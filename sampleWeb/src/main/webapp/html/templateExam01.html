@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<button id="btn">데이터 가져오기</button>
+<table id="tbl" border="1">
+<tr>
+	<td>번호</td>
+	<td>제목</td>
+	<td>작성자</td>
+	<td>등록일</td>
+	<td>조회수</td>
+</tr>
+</table>
+
+<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+<script>
+
+$('#btn').on('click', function() {
+	$.getJSON('board.jsp', function(data) {
+		var list = data.list;
+		var table = $('#tbl');
+		for (var i = 0; i < list.length; i++) {
+			$('<tr>').append($('<td>').html(list[i].no))
+					.append($('<td>').html(list[i].title))
+					.append($('<td>').html(list[i].writer))
+					.append($('<td>').html(list[i].cdt))
+					.append($('<td>').html(list[i].views))
+					.appendTo(table);
+			 
+		}
+	});
+});
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

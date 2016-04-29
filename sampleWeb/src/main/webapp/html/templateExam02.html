@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<button id="btn">데이터 가져오기</button>
+<table id="tbl" border="1">
+<tr>
+	<th>번호</th>
+	<th>제목</th>
+	<th>작성자</th>
+	<th>등록일</th>
+	<th>조회수</th>
+</tr>
+</table>
+
+<script id="tr-template" type="text/x-handlebars-template">
+<tr>
+	<td>{{no}}</td>
+	<td>{{title}}</td>
+	<td>{{writer}}</td>
+	<td>{{cdt}}</td>
+	<td>{{views}}</td>
+</tr>
+</script>
+
+<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+<script type="text/javascript" src="../lib/handlebars/handlebars.js"></script>
+<script>
+
+$('#btn').on('click', function() {
+	$.getJSON('board.jsp', function(data) {
+		var list = data.list;
+		var table = $('#tbl');
+		var templateSource = $("#tr-template").html();
+		var template = Handlebars.compile(templateSource);
+		
+		for (var i = 0; i < list.length; i++) {
+			var html = template(list[i]);
+			table.append(html); 
+		}
+	});
+});
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<button id="btn">데이터 가져오기</button>
+<button id="btn2">테스트</button>
+<table id="tbl" border="1">
+<tr>
+	<th>번호</th>
+	<th>제목</th>
+	<th>작성자</th>
+	<th>등록일</th>
+	<th>조회수</th>
+</tr>
+</table>
+
+<script id="tr-template" type="text/x-handlebars-template">
+{{#each list}}
+<tr>
+	<td>{{no}}</td>
+	<td>{{title}}</td>
+	<td>{{writer}}</td>
+	<td>{{cdt}}</td>
+	<td>{{views}}</td>
+</tr>
+{{/each}}
+</script>
+
+<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+<script type="text/javascript" src="../lib/handlebars/handlebars.js"></script>
+<script>
+"use strict";
+
+var v1 = 100; // window.v1 = 100;
+var boardList;
+
+$('#btn').on('click', function() {
+	var v1 = 200; // local variable
+	$.getJSON('board.jsp', function(data) {
+		boardList = data.list;		
+		var list = data.list;
+		var table = $('#tbl');
+		var templateSource = $("#tr-template").html();
+		var template = Handlebars.compile(templateSource);
+		var html = template(data);
+		table.append(html); 
+	});
+});
+
+$('#btn2').on('click', function() {
+	alert(v1);
+});
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

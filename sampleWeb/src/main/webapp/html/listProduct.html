@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<button id='btn' class="btn btn-primary">제품관리</button>
+<table id="t1" border="1">
+<tr>
+	<th>111</th>
+	<th>222</th>
+	<th>333</th>
+	<th>444</th>
+</tr>
+</table>
+<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+<script>
+$('#btn').click(function() {
+	$.getJSON("../product/listJsonProduct", function(result) {
+		var list = result.list;
+		console.log(list);
+		var t1 = $('#t1');
+		for (var i = 0; i < list.length; i++) {
+			$('<tr>')
+				.append($('<td>').html(list[i].prodNo))
+				.append($('<td>').html(list[i].prodName))
+				.append($('<td>').html(list[i].price))
+				.append($('<td>').html(list[i].fileName))
+				.appendTo(t1);
+		}
+	});	
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
