@@ -30,7 +30,7 @@ import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.product.ProductService;
 
 
-//==> È¸¿ø°ü¸® Controller
+//==> È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Controller
 @Controller
 @RequestMapping("/product/*")
 public class ProductController {
@@ -39,14 +39,14 @@ public class ProductController {
 	@Autowired
 	@Qualifier("productServiceImpl")
 	private ProductService productService;
-	//setter Method ±¸Çö ¾ÊÀ½
+	//setter Method ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
 	public ProductController(){
 		System.out.println(this.getClass());
 	}
 	
-	//==> classpath:config/common.properties  ,  classpath:config/commonservice.xml ÂüÁ¶ ÇÒ°Í
-	//==> ¾Æ·¡ÀÇ µÎ°³¸¦ ÁÖ¼®À» Ç®¾î ÀÇ¹Ì¸¦ È®ÀÎ ÇÒ°Í
+	//==> classpath:config/common.properties  ,  classpath:config/commonservice.xml ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	//==> ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½Ç¹Ì¸ï¿½ È®ï¿½ï¿½ ï¿½Ò°ï¿½
 	@Value("#{commonProperties['pageUnit']}")
 	//@Value("#{commonProperties['pageUnit'] ?: 3}")
 	int pageUnit;
@@ -121,11 +121,11 @@ public class ProductController {
 				model.addAttribute("product", vo);
 			} else {
 				int overSize = (request.getContentLength() / 1000000);
-				System.out.println("<script>alery('ÆÄÀÏÀÇ Å©±â´Â 1MB±îÁö ÀÔ´Ï´Ù. ¿Ã¸®½Å ÆÄÀÏ¿ë·®Àº" + overSize + "MBÀÔ´Ï´Ù');");
+				System.out.println("<script>alery('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ 1MBï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½. ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ë·®ï¿½ï¿½" + overSize + "MBï¿½Ô´Ï´ï¿½');");
 				System.out.println("history.back();<script>");
 			}
 		} else {
-			System.out.println("ÀÎÄÚµù Å¸ÀÔÀÌ multipart/form-data°¡ ¾Æ´Õ´Ï´Ù..");
+			System.out.println("ï¿½ï¿½ï¿½Úµï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ multipart/form-dataï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½..");
 		}
 		
 		return "forward:/product/addProduct.jsp";
@@ -172,7 +172,7 @@ public class ProductController {
 		
 		//Business Logic
 		Product product = productService.getProduct(prodNo);
-		// Model °ú View ¿¬°á
+		// Model ï¿½ï¿½ View ï¿½ï¿½ï¿½ï¿½
 		model.addAttribute("vo", product);
 		model.addAttribute("menu", menu);
 		
@@ -185,7 +185,7 @@ public class ProductController {
 		System.out.println("/product/getJsonProduct : GET");
 		//Business Logic
 		Product product = productService.getProduct(prodNo);
-		// Model °ú View ¿¬°á
+		// Model ï¿½ï¿½ View ï¿½ï¿½ï¿½ï¿½
 		model.addAttribute("product", product);
 		
 	}
@@ -196,7 +196,7 @@ public class ProductController {
 		System.out.println("/product/updateProduct : GET");
 		//Business Logic
 		Product product = productService.getProduct(prodNo);
-		// Model °ú View ¿¬°á
+		// Model ï¿½ï¿½ View ï¿½ï¿½ï¿½ï¿½
 		model.addAttribute("product", product);
 		
 		return "forward:/product/updateProductView.jsp";
@@ -224,7 +224,10 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/listProduct")
-	public String listProduct( @ModelAttribute("search") Search search , @RequestParam("menu") String menu, Model model) throws Exception{
+	public String listProduct( 
+			@ModelAttribute("search") Search search , 
+			@RequestParam("menu") String menu, 
+			Model model) throws Exception{
 		
 		System.out.println("/product/listProduct");
 		
@@ -233,13 +236,13 @@ public class ProductController {
 		}
 		search.setPageSize(pageSize);
 		
-		// Business logic ¼öÇà
+		// Business logic ï¿½ï¿½ï¿½ï¿½
 		Map<String , Object> map=productService.getProductList(search);
 		
 		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
 		System.out.println(resultPage);
 		
-		// Model °ú View ¿¬°á
+		// Model ï¿½ï¿½ View ï¿½ï¿½ï¿½ï¿½
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
@@ -258,13 +261,13 @@ public class ProductController {
 		}
 		search.setPageSize(pageSize);
 		
-		// Business logic ¼öÇà
+		// Business logic ï¿½ï¿½ï¿½ï¿½
 		Map<String , Object> map=productService.getProductList(search);
 		
 		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
 		System.out.println(resultPage);
 		
-		// Model °ú View ¿¬°á
+		// Model ï¿½ï¿½ View ï¿½ï¿½ï¿½ï¿½
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
